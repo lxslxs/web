@@ -1,8 +1,2 @@
 /target/
 
-.classpath
-.project
-.tern-project
-/.settings/
-/.myeclipse/
-msg.log
