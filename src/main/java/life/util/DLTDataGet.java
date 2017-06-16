@@ -133,6 +133,4 @@ public class DLTDataGet {
 	}
 	@Autowired
 	private SecretDao secretDao;
-	@Autowired
-	private DaLeTouDao daLeTouDao;
 }
