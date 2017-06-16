@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="life.dao.IndustryAnalyDao">
+	<insert id="insertSecuAnaly" parameterType="life.entity.dataget.SecuAnalyEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into industry_analy( ID,
+		code,name,
+		lastPrice,todayUpOrDown,time)values(#{id},#{code},#{name},#{lastPrice},#{todayUpOrDown},#{time})
+	</insert>
+
+	<select id="queryByPrimaryKey" resultType="life.entity.dataget.SecuAnalyEntity"
+		parameterType="Integer">
+		select ID, code, name,
+		lastPrice,todayUpOrDown,time,updateBy from industry_analy where id=#{id}
+	</select>
+
+	<select id="queryByCondition" resultType="life.entity.dataget.SecuAnalyEntity"
+		parameterType="life.entity.dataget.SecuAnalyEntity">
+		select ID, code, name, lastPrice,todayUpOrDown,time from industry_analy
+		<where>
+			1=1
+			<if test="code!=null and code!=''">and code=#{code}</if>
+			<if test="name!=null and name!=''">and name=#{name}</if>
+			<if test="time!=null and time!=''">and time=#{time}</if>
+			ORDER BY todayUpOrDown DESC
+			LIMIT #{pageBeg},#{pageSize}
+		</where>
+	</select>
+	<select id="queryByCodeAndTime" resultType="life.entity.dataget.SecuAnalyEntity"
+		parameterType="life.entity.dataget.SecuAnalyEntity">
+		select ID, code, name, lastPrice,todayUpOrDown,time from industry_analy
+		<where>
+			1=1
+			<if test="code!=null and code!=''">and code=#{code}</if>
+			<if test="time!=null and time!=''">and time=#{time}</if>
+		</where>
+	</select>
+
+	<select id="query" resultType="life.entity.dataget.SecuAnalyEntity">
+		select ID, code, name, lastPrice,todayUpOrDown,time from industry_analy
+		<where>
+			1=1
+			<if test="cac.code!=null">and code=#{cac.code}</if>
+			<if test="cac.name!=null">and name=#{cac.name}</if>
+		</where>
+		ORDER BY time DESC limit ${pageNo},${pageSize}
+	</select>
+
+	<select id="queryCount" resultType="long">
+		select count(1) from industry_analy
+		<where>
+			1=1
+			<if test="cac.code!=null">and code=#{cac.code}</if>
+			<if test="cac.name!=null">and name=#{cac.name}</if>
+		</where>
+	</select>
+
+</mapper>

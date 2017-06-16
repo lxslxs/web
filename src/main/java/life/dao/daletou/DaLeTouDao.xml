@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="life.dao.daletou.DaLeTouDao">
+	<resultMap type="life.entity.daletou.DaLeTouEntity" id="typeMap">
+		<id property="id" column="id" />
+		<result property="redBalls" column="red_balls" />
+		<result property="blueBalls" column="blue_balls" />
+		<result property="qi" column="qi" />
+		<result property="date" column="date" />
+	</resultMap>
+	<sql id="sql">id,red_balls,blue_balls,qi,date</sql>
+	<insert id="insert" parameterType="life.entity.daletou.DaLeTouEntity"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into da_le_tou(<include refid="sql"></include>)values(#{id},#{redBalls},#{blueBalls},#{qi},now())
+	</insert>
+	<select id="query" parameterType="life.entity.daletou.DaLeTouEntity" resultMap="typeMap">
+		select <include refid="sql"></include> from da_le_tou where 1=1
+		<if test="date!=null">
+			and date = ${date}
+		</if>
+	</select>
+</mapper>
