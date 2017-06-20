@@ -1,4 +1,4 @@
-package life.base.security.filter;
+/*package life.base.security.filter;
 
 import java.io.IOException;
 
@@ -41,3 +41,4 @@ public class UrlPermissionsAuthorizationFilter extends
 	
 
 }
+*/
