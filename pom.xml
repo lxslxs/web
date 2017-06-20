@@ -27,7 +27,7 @@
 		<commons-httpclient.version>3.1_2</commons-httpclient.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<jstl.version>1.2</jstl.version>
-		<sitemesh.version>3.0.0</sitemesh.version>
+		<sitemesh.version>3.0.0</sitemesh.version> 
 		<hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
 		<javax.el-api.version>3.0.1-b04</javax.el-api.version>
 		<rabbitmq-client.version>3.4.4</rabbitmq-client.version>
