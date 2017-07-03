@@ -36,11 +36,11 @@
 		<div class="list_main">
 			<form class="form-horizontal" role="form">
 				<div class="col-xs-14 col-sm-10">
-					<div class="input-group" style="margin-top: 20px;">
+					<div class="input-group" style="margin-top: 20px;display: -webkit-box;">
 						<input type="text" class="form-control search-query"
 							placeholder="查询多少条数据(2975)" id="pageSize" name="pageSize"
-							style="padding-left:10px;background-color: #CCE8CF"><span class="input-group-btn"
-							style="margin-top: 15px;">
+							style="padding-left:10px;background-color: #CCE8CF;width: 160px;"><span class="input-group-btn"
+							style="margin-top: 15px;width: inherit;">
 							<button type="button" class="btn btn-purple btn-sm"
 								id="btnFeedback">
 								抓取<sup style="color: pink;">[主]</sup><i
@@ -51,6 +51,8 @@
 									class="icon-cloud-download icon-on-right bigger-110"></i>
 							</button>
 						</span>
+						<input id="sssssssss" class="form-control" data-date-format="yy-mm-dd" style="width: 100px;">
+						<font style="color: red;font-weight: bold;">（选择时间查询）</font>
 					</div>
 				</div>
 				<!-- <div class="col-xs-12 col-sm-1">
@@ -59,11 +61,16 @@
 				</div> -->
 				<div class="col-xs-14 col-sm-2">
 					<h3 style="margin-bottom: 10px;display:none;" id="yanchi">
-						<small style="color: red;font-size: 12px">正在执行...&nbsp;
+						<small style="color: red;font-size: 12px">正b在执行...&nbsp;
 							&nbsp; &nbsp; </small><i class="icon-spinner icon-spin orange bigger-600"
 							style="font-size: 20"></i>
 					</h3>
 				</div>
+				<table class="table table-bordered" style="width: 50%;">
+					<tbody id="main_tbody">
+						
+					</tbody>
+				</table>
 			</form>
 		</div>
 	</div>
@@ -206,7 +213,7 @@
 					m = "0" + m
 				if (d <= 9)
 					d = "0" + d
-				return y + "-" + m + "-" + d;
+	 			return y + "-" + m + "-" + d;
 			}
 			function pageNoChange(op, no) {
 				if (pageNo == 2 && no == -1) {
